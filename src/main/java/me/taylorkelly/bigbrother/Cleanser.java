@@ -86,7 +86,7 @@ public class Cleanser {
                 return;
             String timespent = Time.formatDuration(System.currentTimeMillis() / 1000 - start);
             
-            String words = String.format("Cleaned out %d records because of age in %s.", cleanedSoFarAge, timespent);
+            String words = String.format("Cleaned out %d expired records in %s.", cleanedSoFarAge, timespent);
             if (player == null) {
                 BBLogging.info(words);
             } else {
