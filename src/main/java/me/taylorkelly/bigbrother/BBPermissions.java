@@ -21,7 +21,7 @@ public class BBPermissions {
     public static void initialize(Server server) {
         //Plugin groupManager = server.getPluginManager().getPlugin("GroupManager");
         Plugin permissions = server.getPluginManager().getPlugin("Permissions");
-
+        
         /* Use FakePermissions 
          if (groupManager != null) {
             permissionPlugin = groupManager;
@@ -33,6 +33,12 @@ public class BBPermissions {
             permissionPlugin = permissions;
             handler = PermissionHandler.PERMISSIONS;
             String version = permissions.getDescription().getVersion();
+            
+            if (!server.getPluginManager().isPluginEnabled(permissionPlugin)) {
+                BBLogging.info("Permissions plugin found but disabled. Enabling 'Permissions' (v"+version+").");
+                server.getPluginManager().enablePlugin(permissionPlugin);
+            }
+            
             BBLogging.info("Permissions enabled using: Permissions v" + version);
         } else {
             handler = PermissionHandler.NONE;
