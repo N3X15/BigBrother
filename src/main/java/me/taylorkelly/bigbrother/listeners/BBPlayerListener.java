@@ -51,7 +51,7 @@ public class BBPlayerListener extends PlayerListener {
             
             // Perform censoring
             if (BBSettings.censoredCommands.contains(cmd)) {
-                msg = "/" + cmd;
+                msg = cmd;
                 if (parts.length > 1) {
                     for (int i = 1; i < parts.length; i++) {
                         msg += " ";
