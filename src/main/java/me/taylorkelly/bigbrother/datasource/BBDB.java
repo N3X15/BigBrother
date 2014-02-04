@@ -256,7 +256,7 @@ public class BBDB {
     public static String getDSN() {
         switch (dbms) {
             case MYSQL:
-                return String.format("jdbc:mysql://%s:%d/%s?autoReconnect=true", hostname, port, schema);
+                return String.format("jdbc:mysql://%s:%d/%s", hostname, port, schema);// autoreconnect can cause problems
             case POSTGRES:
                 return String.format("jdbc:postgresql://%s:%d/%s", hostname, port, schema);
             default:

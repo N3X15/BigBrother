@@ -171,6 +171,7 @@ public class BBSettings {
         }
         
         censoredCommands = new ArrayList<String>();
+        censoredCommands = yml.getStringList("general.censored-commands", new ArrayList<String>());
         censoredCommands.add("/login"); // xAuth
         censoredCommands.add("/l"); // xAuth
         censoredCommands.add("/register"); // xAuth
@@ -180,7 +181,6 @@ public class BBSettings {
         censoredCommands.add("/changepassword"); // xAuth
         censoredCommands.add("/xauth"); // xAuth
         censoredCommands.add("/login"); // ?
-        censoredCommands = yml.getStringList("general.censored-commands", censoredCommands);
         
         final List<String> excludedWorlds = yml.getStringList("general.excluded-worlds", new ArrayList<String>());
         if (excludedWorlds == null) {
